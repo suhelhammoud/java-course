@@ -1,10 +1,11 @@
 defaults:
   # override the terminal font size when in windows or when using sixel.
-  terminal_font_size: 25
+  terminal_font_size: 40
 
   # the theme to use by default in every presentation unless overridden.
   # theme: catppuccin-frappe
   theme: catppuccin-latte
+  # theme: dark
 snippet:
   exec:
     # enable code snippet execution. Use at your own risk!
