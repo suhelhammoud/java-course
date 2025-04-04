@@ -12,12 +12,6 @@ theme:
 primitive-types
 ===
 
-<!-- column_layout: [1, 1] -->
-<!-- column: 0 -->
-<!-- new_line -->
-<!-- reset_layout -->
-<!-- end_slide -->
-
 
 
 ### **Primitive Type Variables in Java**  
@@ -287,6 +281,19 @@ String poem = "Roses are red\nViolets are blue";
 ```java
 long population = 7_900_000_000L;
 int mask = 0b1111_0000_1100_1101;
+```
+
+### **Using Underscores in Numeric Literals** (Java 7+)**
+
+```java
+long creditCardNumber = 1234_5678_9012_3456L;
+long socialSecurityNumber = 999_99_9999L;
+float pi =  3.14_15F;
+long hexBytes = 0xFF_EC_DE_5E;
+long hexWords = 0xCAFE_BABE;
+long maxLong = 0x7fff_ffff_ffff_ffffL;
+byte nybbles = 0b0010_0101;
+long bytes = 0b11010010_01101001_10010100_10010010;
 ```
 
 <!-- end_slide -->
