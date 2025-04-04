@@ -4,8 +4,9 @@ defaults:
 
   # the theme to use by default in every presentation unless overridden.
   # theme: catppuccin-frappe
-  theme: catppuccin-latte
   # theme: dark
+  theme: catppuccin-latte
+
 snippet:
   exec:
     # enable code snippet execution. Use at your own risk!
@@ -20,3 +21,4 @@ snippet:
 mermaid:
   # the scale parameter passed to the mermaid CLI (mmdc).
   scale: 1
+
