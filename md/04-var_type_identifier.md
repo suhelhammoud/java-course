@@ -9,41 +9,38 @@ theme:
         # horizontal: 4
 ---
 
-Using the Var Type Identifier
+Var Type Identifier
 ===
 
-<!-- pause -->
-- The "var" Keyword  
-<!-- pause -->
-- Examples with Var  
-<!-- pause -->
-- Restrictions on Using Var
 
-<!-- end_slide -->
-
+<!-- column_layout: [1, 1] -->
+<!-- column: 0 -->
+<!-- pause -->
 ## The var Keyword
 
+<!-- pause -->
 - Introduced in Java SE 10
+<!-- pause -->
 - `var` declares a local variable with type inferred by compiler
+<!-- pause -->
 - Type is fixed after declaration
 
 <!-- pause -->
-Before:
+**Before:**
 ```java
 String message = "Hello world!";
 Path path = Path.of("debug.log");
 InputStream stream = Files.newInputStream(path);
 ```
 <!-- pause -->
-After:
+**After:**
 ```java
 var message = "Hello world!";
 var path = Path.of("debug.log");
 var stream = Files.newInputStream(path);
 ```
-
-<!-- end_slide -->
-
+<!-- column: 1 -->
+<!-- pause -->
 ## Examples with Var
 
 <!-- pause -->
@@ -70,34 +67,45 @@ try (var stream = Files.newInputStream(path)) {
 
 <!-- end_slide -->
 
-## Restrictions on Using Var
+Var Type Identifier
+===
+
 
 <!-- column_layout: [1, 1] -->
 <!-- column: 0 -->
 
+<!-- pause -->
+## **Restrictions on Using Var**
 <!-- pause -->
 1. Only for local variables in:
    - Methods
    - Constructors
    - Initializer blocks
-<!-- column: 1 -->
+
 <!-- pause -->
+<!-- new_line -->
 2. Cannot be used for:
    - Fields
    - Method parameters
    - Constructor parameters
 <!-- pause -->
-3. Must have initializer (can't be `null`)
-<!-- reset_layout -->
+<!-- new_line -->
 
+3. Must have initializer (can't be `null`)
+
+<!-- pause -->
+## Summary
+
+- `var` simplifies local variable declarations
+- Type is inferred at compile-time
+- Several usage restrictions apply
+- Cannot replace all explicit type declarations
+
+<!-- column: 1 -->
 <!-- pause -->
 ## Invalid Usage Examples
 
-
-<!-- column_layout: [1, 1] -->
-<!-- column: 0 -->
 <!-- pause -->
-
 ### Field Declaration
 ```java
 public class User {
@@ -107,7 +115,6 @@ public class User {
 ```
 
 <!-- pause -->
-<!-- column: 1 -->
 ### Missing Initializer
 ```java
 public String greetings(int message) {
@@ -118,11 +125,3 @@ public String greetings(int message) {
 }
 ```
 <!-- reset_layout -->
-<!-- end_slide -->
-
-# Summary
-
-- `var` simplifies local variable declarations
-- Type is inferred at compile-time
-- Several usage restrictions apply
-- Cannot replace all explicit type declarations

@@ -10,63 +10,68 @@ theme:
 ---
 
 
-# Expressions, Statements and Blocks
-
+Expressions
+===
+<!-- pause -->
 ## Expressions
 - Constructs with variables, operators, method calls
 - Evaluate to a single value
 - Data type depends on elements used
 
-Examples:
+<!-- pause -->
 ```java
 int result = 1 + 2;  // evaluates to 3
 anArray[0] = 100;    // assignment expression
 value1 == value2     // boolean expression
 ```
 
-<!-- end_slide -->
-
+<!-- pause -->
 ## Compound Expressions
 - Combine smaller expressions
 - Type compatibility required
 - Evaluation order matters
 
-Examples:
+<!-- pause -->
 ```java
 1 * 2 * 3          // order doesn't matter
 x + y / 100        // ambiguous
 (x + y) / 100      // unambiguous
 ```
 
-Best Practice:
-- Use parentheses to make order explicit
+<!-- pause -->
+**Best Practice:** Use parentheses to:
+- Make order explicit
 - Improves readability and maintainability
 
 <!-- end_slide -->
 
+Expressions
+===
+<!-- pause -->
 ## Operator Precedence
 - Determines evaluation order when ambiguous
 - Higher precedence operators evaluated first
 - Example: division before addition
 
+<!-- pause -->
 ```java
 x + y / 100    // same as x + (y / 100)
 ```
 
-<!-- end_slide -->
-
+<!-- pause -->
 ## Floating Point Arithmetic
 - Special behavior due to rounding
 - May produce unexpected results
 
+<!-- pause -->
 Example:
 ```java
 double d1 = 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1 + 0.1;
 System.out.println("d1 == 1 ? " + (d1 == 1.0)); //false
 ```
 
-
-Note:
+<!-- pause -->
+**Note:**
 - Floating-point math has precision limitations
 - Requires special handling for comparisons
 
@@ -74,19 +79,22 @@ Note:
 
 Statements
 ===
-<!-- pause -->
-- **Complete units of execution**
-<!-- pause -->
-- **Terminated with semicolon (;)**
-<!-- pause -->
-- **Types**:
-  - **Expression statements**
-  - **Declaration statements**
-  - **Control flow statements**
-
 
 <!-- column_layout: [1, 1] -->
 <!-- column: 0 -->
+<!-- pause -->
+## What is a statement?
+<!-- pause -->
+- Complete units of execution
+<!-- pause -->
+- Terminated with semicolon (;) 
+<!-- pause -->
+- **Types**:
+  - Expression statements
+  - Declaration statements
+  - Control flow statements
+
+
 <!-- pause -->
 ## Expression Statements
 Examples:
@@ -117,15 +125,33 @@ int count;
 double aValue = 8933.234;
 String name = "Java";
 ```
+
+<!-- pause -->
+## Control Flow Statements
+<!-- pause -->
+- Used to change program flow
+<!-- pause -->
+- Examples:
+  - If-then statements
+  - While loops
+  - For loops
+  - Switch statements
+  - Break and continue statements
+  - Return statements
+
 <!-- reset_layout -->
 <!-- end_slide -->
 
-## Blocks
+Blocks
+===
+
+<!-- pause -->
+## What is blocks?
 - Group of statements in { }
 - Can be used anywhere single statement is allowed
 - Used in control flow structures
 
-Example:
+<!-- pause -->
 ```java
 class BlockDemo {
      public static void main(String[] args) {
@@ -140,12 +166,17 @@ class BlockDemo {
 }
 ```
 
-<!-- end_slide -->
+<!-- pause -->
 
-## Summary
+## Lecture Summary
+<!-- pause -->
 - **Expressions evaluate to values**
+<!-- pause -->
 - **Statements perform actions**
+<!-- pause -->
 - **Blocks organize statements**
+<!-- pause -->
 - **Precedence and parentheses control evaluation order**
+<!-- pause -->
 - **Floating-point requires special care**
 

@@ -10,12 +10,16 @@ theme:
 ---
 
 
-Control Flow Statements
+If-Then-Else Statement:
 ===
 
+<!-- column_layout: [1, 1] -->
+<!-- column: 0 -->
+<!-- pause -->
 ## The If-Then Statement
 - Executes code block if condition is true
 
+<!-- pause -->
 ```java
 void applyBrakes() {
     if (isMoving) {
@@ -23,6 +27,7 @@ void applyBrakes() {
     }
 }
 ```
+<!-- pause -->
 - Braces optional for single statements
 
 ```java
@@ -32,16 +37,15 @@ void applyBrakes() {
         currentSpeed--;
 }
 ```
+<!-- pause -->
+**Best Practice**: Always use braces for better maintainability
 
-Best Practice: Always use braces for better maintainability
+<!-- column: 1 -->
 
-<!-- end_slide -->
-
-Control Flow Statements
-===
-
+<!-- pause -->
 ## The If-Then-Else Statement
-### Provides alternative execution path when condition is false
+<!-- pause -->
+### alternative execution path when condition is false
 
 ```java
 void applyBrakes() {
@@ -53,6 +57,7 @@ void applyBrakes() {
 }
 ```
 
+<!-- pause -->
 ### Multiple conditions:
 ```java
 if (testscore >= 90) {
@@ -61,10 +66,15 @@ if (testscore >= 90) {
     grade = 'B';
 } // ... and so on
 ```
-
+<!-- reset_layout -->
 <!-- end_slide -->
 
+While Loop
+===
+
+<!-- pause -->
 ## While Loop
+<!-- pause -->
 - **checks condition first**
 
 ```java
@@ -75,6 +85,7 @@ while (count < 11) {
 }
 ```
 
+<!-- pause -->
 ## Do-while Loop:
 - **executes at least once**
 
@@ -87,24 +98,29 @@ do {
 ```
 
 <!-- end_slide -->
+
 For Loop
 ===
 
+<!-- pause -->
 - Compact iteration over range of values
 - Three parts: initialization, condition, increment
 
+<!-- pause -->
 ```java
 for (int i = 1; i < 11; i++) {
     System.out.println("Count: " + i);
 }
 ```
-### Infinit for loop
+<!-- pause -->
+## Infinit for loop
 ```java
 for (;;) {
     // your code goes here
 }
 ```
-### Enhanced for loop
+<!-- pause -->
+## Enhanced for loop
 
 ```java
 int[] numbers = {1, 2, 3, 4, 5};
@@ -115,10 +131,16 @@ for (int num : numbers) {
 
 <!-- end_slide -->
 
+**Break and Continue Statemenets**
+===
+<!-- column_layout: [1, 1] -->
+<!-- column: 0 -->
+<!-- pause -->
 ## Break Statement
 - Terminates loops or switch statements
 - Can be labeled or unlabeled
 
+<!-- pause -->
 ```java
 for (int i = 0; i < array.length; i++) {
     if (array[i] == searchfor) {
@@ -128,7 +150,8 @@ for (int i = 0; i < array.length; i++) {
 }
 ```
 
-### Labeled break
+<!-- pause -->
+## Labeled break
 ```java
 search:
 for (i = 0; i < array.length; i++) {
@@ -140,12 +163,14 @@ for (i = 0; i < array.length; i++) {
 }
 ```
 
-<!-- end_slide -->
+<!-- column: 1 -->
 
+<!-- pause -->
 ## Continue Statement
 - Skips current iteration
 - Can be labeled or unlabeled
 
+<!-- pause -->
 ```java
 // Unlabeled continue
 for (int i = 0; i < max; i++) {
@@ -153,7 +178,9 @@ for (int i = 0; i < max; i++) {
     numPs++;
 }
 ```
-### Labeled continue
+<!-- pause -->
+## Labeled continue
+<!-- pause -->
 ```java
 test:
 for (int i = 0; i <= max; i++) {
@@ -161,13 +188,20 @@ for (int i = 0; i <= max; i++) {
     if (condition) continue test;
 }
 ```
-
+<!-- reset_layout -->
 <!-- end_slide -->
 
+**Return and Yeild Statements**
+===
+
+<!-- column_layout: [3, 5] -->
+<!-- column: 0 -->
+<!-- pause -->
 ## Return Statement
 - Exits current method
 - Returns value if method isn't void
 
+<!-- pause -->
 ```java
 // With return value
 public int increment(int count) {
@@ -180,13 +214,14 @@ public void printMessage() {
     return;
 }
 ```
+<!-- column: 1 -->
 
-<!-- end_slide -->
-
+<!-- pause -->
 ## Yield Statement
 - Exits switch expression
 - Returns value for switch expression
 
+<!-- pause -->
 ```java
 class Test {
     enum Day {
@@ -204,4 +239,4 @@ class Test {
     }
 }
 ```
-
+<!-- reset_layout -->

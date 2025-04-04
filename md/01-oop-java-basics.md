@@ -9,13 +9,13 @@ theme:
         # horizontal: 4
 ---
 
-Creating Variables and Naming Them
+Variables
 ===
 
 
-
-### **Variables in Java**  
+<!-- pause -->
 - Objects store state in **fields**.  
+<!-- pause -->
 - Example:  
 
 ```java
@@ -23,31 +23,36 @@ Creating Variables and Naming Them
   int speed = 0;
   int gear = 1;
 ```  
-- Questions to explore:  
-  - Naming rules?  
-  - Data types?  
-  - Initialization rules?  
-  - Default values?  
+
+<!-- pause -->
+## Questions to explore:  
+  - Naming rules
+  - Data types 
+  - Initialization rules  
+  - Default values  
 
 <!-- end_slide -->
 
 
-### **Types of Variables**  
+**Types of Variables**  
+===
 
 <!-- column_layout: [1, 1] -->
 <!-- column: 0 -->
 
-
-1. **Instance Variables (Non-Static Fields)**  
+<!-- pause -->
+## **Instance Variables (Non-Static Fields)**  
    - Unique to each object.  
    - Declared *without* `static`.  
    - Example: `currentSpeed` of a bicycle. 
 <!-- new_line -->
 
 
-2. **Class Variables (Static Fields)**  
+<!-- pause -->
+## **Class Variables (Static Fields)**  
    - Shared across all instances.  
    - Declared with `static`.  
+<!-- pause -->
    - Example:  
 
 ```java
@@ -56,17 +61,21 @@ static int numGears = 6;
 ```  
 <!-- column: 1 -->
 
-3. **Local Variables**  
+<!-- pause -->
+## **Local Variables**  
    - Temporary state in methods.  
    - Declared *inside* method braces.  
+<!-- pause -->
    - Example:  
 ```java
 int count = 0;
 // Local to method
 ```  
 
-4. **Parameters**  
+<!-- pause -->
+## **Parameters**  
    - Variables in method signatures.  
+<!-- pause -->
    - Example:  
 ```java
 // 'args' is a parameter
@@ -74,28 +83,32 @@ public static void main(String[] args)
 ```  
 <!-- reset_layout -->
 
+<!-- pause -->
 **Note:**  
+<!-- pause -->
 - "Fields" = instance + class variables.  
+<!-- pause -->
 - "Variables" = all types (including locals/parameters).  
 
 <!-- end_slide -->
 
 
 
-# **Naming Conventions**  
-
+ **Naming Conventions**  
+ ===
+<!-- pause -->
 Use **meaningful names** for variables.This is better for self documentation and readability.
 <!-- column_layout: [1, 1] -->
 <!-- column: 0 -->
 <!-- pause -->
 
-### **Rules:**  
+## **Rules:**  
   - Case-sensitive (`speed ≠ Speed`).  
   - Start with: letter, `$`, or `_` (but avoid `$` and `_` ).  
   - No whitespace/keywords (e.g., `int static = 0;` ❌ ).  
 
 <!-- pause -->
-### **Best Practices:**  
+## **Best Practices:**  
   - Use full words (`gearRatio` over `gr`).  
   - camelCase for variables (`currentGear`).  
   - UPPER_CASE for constants (`MAX_SPEED`).  
@@ -103,7 +116,7 @@ Use **meaningful names** for variables.This is better for self documentation and
 <!-- column: 1 -->
 <!-- pause -->
 
-### **Examples**  
+## **Examples**  
 <!-- pause -->
 - **Good Names:**  
 ```java
