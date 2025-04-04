@@ -133,5 +133,3 @@ Key points:
 - Indexing starts at 0
 - Can hold primitive types or objects
 
-<!-- end_slide -->
-```

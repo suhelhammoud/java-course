@@ -118,6 +118,5 @@ int $speed; // Non-standard
 ```  
 
 <!-- reset_layout -->
-<!-- end_slide -->
 
 

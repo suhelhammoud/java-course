@@ -126,5 +126,3 @@ public String greetings(int message) {
 - Type is inferred at compile-time
 - Several usage restrictions apply
 - Cannot replace all explicit type declarations
-
-<!-- end_slide -->
