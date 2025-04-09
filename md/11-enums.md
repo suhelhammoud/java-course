@@ -1,6 +1,6 @@
 ---
 title: Object Oriented Programming in Java
-sub_title: Enum Classes
+sub_title: enum Classes
 author: Suhel Hammoud
 
 theme:
@@ -14,16 +14,16 @@ theme:
 ---
 
 
-Enum
+enum
 ===
 
 
-## What are Enums?
+## What are enums?
 
-- Enums are classes where all instances are known to the compiler.
+- enums are classes where all instances are known to the compiler.
 - Used for creating types with a fixed set of possible values.
 - Created using the `enum` keyword instead of `class`.
-- Enum constants are listed in the body, separated by commas.
+- enum constants are listed in the body, separated by commas.
 - No instances can be created outside of enum constants.
 
 ```java
@@ -37,10 +37,10 @@ public enum DayOfWeek {
 <!-- end_slide -->
 
 
-Accessing, Evaluating, and Comparing Enums
+Accessing, Evaluating, and Comparing enums
 ===
 
-- Enum values can be used as constants.
+- enum values can be used as constants.
 - Use `==` to compare enum instances.
 
 ```java
@@ -53,25 +53,23 @@ if (weekStart == DayOfWeek.MONDAY) {
 
 <!-- end_slide -->
 
-Accessing, Evaluating, and Comparing Enums
+Accessing, Evaluating, and Comparing enums
 ===
 
 - Use `switch` for actions based on enum values.
+- Switch expressions ensure **exhaustiveness** (all enum values are handled).
 
 ```java
 DayOfWeek someDay = DayOfWeek.FRIDAY;
 
 switch (someDay) {
-  case MONDAY -> System.out.println("The week just started.");
-  case TUESDAY, WEDNESDAY, THURSDAY -> System.out.println("We are in the middle of the week.");
-  case FRIDAY -> System.out.println("The weekend is near.");
+  case MONDAY -> System.out.println("start of week");
+  case TUESDAY, WEDNESDAY, THURSDAY -> System.out.println("middle");
+  case FRIDAY -> System.out.println("weekend is near.");
   case SATURDAY, SUNDAY -> System.out.println("Weekend");
   default -> throw new AssertionError("Should not happen");
 }
 ```
-
-- Switch expressions ensure **exhaustiveness** (all enum values are handled).
-
 
 <!-- end_slide -->
 
@@ -80,7 +78,7 @@ switch (someDay) {
 
 Adding memebers to enum
 ===
-- Enums can have constructors, methods, and fields.
+- enums can have constructors, methods, and fields.
 - Add a `;` after the enum constants list to define members.
 
 ```java
@@ -98,9 +96,10 @@ public enum DayOfWeek {
 
 <!-- end_slide -->
 
-Using Enums as Singletons: define a single enum constant
+Using enums as Singletons:
 ===
 
+##  Define a single enum constant
 
 ```java
 public enum SomeSingleton {
@@ -110,9 +109,9 @@ public enum SomeSingleton {
 ```
 <!-- end_slide -->
 
-Enum Methods
+enum Methods
 ===
-## Special Methods in Enums
+## Special Methods in enums
 
 - **Instance Methods**:
   - `name()`: Returns the name of the enum constant.
@@ -124,9 +123,9 @@ System.out.println(DayOfWeek.MONDAY.ordinal()); // "0"
 ```
 
 <!-- end_slide -->
-Enum Methods
+enum Methods
 ===
-## Special Methods in Enums 
+## Special Methods in enums 
 - **Static Methods**:
   - `values()`: Returns an array of all enum instances.
   - `valueOf(String)`: Returns an enum instance by name.
@@ -136,7 +135,7 @@ DayOfWeek[] days = DayOfWeek.values(); // All days
 DayOfWeek monday = DayOfWeek.valueOf("MONDAY");
 ```
 
-- Enums implement `Comparable` and are ordered by their ordinal number.
+- enums implement `Comparable` and are ordered by their ordinal number.
 
 <!-- end_slide -->
 
@@ -164,12 +163,12 @@ enum MyEnum {
 
 <!-- end_slide -->
 
-Enum: Precautions
+enum: Precautions
 ===
 
-## Precautions with Enums
+## Precautions with enums
 
-- **Changes to Enum Constants**:
+- **Changes to enum Constants**:
   - Adding, removing, or renaming enum constants can break code.
   - Review all code using the enum when making changes.
 - **Large Number of Instances**:
