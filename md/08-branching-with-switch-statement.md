@@ -1,10 +1,14 @@
 ---
+title: Object Oriented Programming in Java
+sub_title: Branching with Switch Statement & Expression
+author: Suhel Hammoud
+
 theme:
   override:
     code:
         alignment: left
-        margin:
-            percent: 5
+        # margin:
+        #     percent: 2q
     #   padding:
         # horizontal: 4
 ---
@@ -12,9 +16,6 @@ theme:
 Branching with Switch Statement
 ===
 
-<!-- column_layout: [1, 1] -->
-<!-- column: 0 -->
-<!-- pause -->
 ## Switch Statement Basics:
 - Controls program flow based on selector variable
 <!-- pause -->
@@ -24,7 +25,13 @@ Branching with Switch Statement
   - `enum` types
   - `String` (Java SE 7+)
 
+<!-- end_slide -->
+
+Branching with Switch Statement
+===
 <!-- pause -->
+
+## Example
 ```java
 int quarter = 2;
 String quarterLabel;
@@ -36,59 +43,51 @@ switch (quarter) {
     default: quarterLabel = "Unknown quarter";
 }
 ```
-<!-- column: 1 -->
-<!-- pause -->
+<!-- end_slide -->
+
+Branching with Switch Statement
+===
 ## Break and Fall-Through
 - `break` terminates switch block
 - Without `break`, execution falls through to next case
 
 <!-- pause -->
 ```java
-int month = 8;
+int month = 2;
 List<String> futureMonths = new ArrayList<>();
 switch (month) {
     case 1: futureMonths.add("January");
     case 2: futureMonths.add("February");
-    // ... cases 3-7 ...
-    case 8: futureMonths.add("August");
-    // ... cases 9-11 ...
-    case 12: futureMonths.add("December");
-             break;
+    case 8: futureMonths.add("August");break;
     default: break;
 }
-// futureMonths contains Aug-Dec
+// futureMonths contains [February, August]
 ```
-<!-- reset_layout -->
 <!-- end_slide -->
 
 Branching with Switch Statement
 ===
 
-<!-- column_layout: [1, 1] -->
-<!-- column: 0 -->
-<!-- pause -->
+
 ## Multiple Case Labels
 - Single block can handle multiple cases
 
 <!-- pause -->
 ```java
 switch (month) {
-    case 1: case 3: case 5: case 7: 
-    case 8: case 10: case 12:
-        numDays = 31;
-        break;
+    case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+        numDays = 31; break;
     case 4: case 6: case 9: case 11:
-        numDays = 30;
-        break;
-    case 2:
-        // February calculation
+        numDays = 30; break;
+    case 2: // February calculation
         break;
     default:
         System.out.println("Invalid month");
 }
 ```
-<!-- column: 1 -->
-<!-- pause -->
+<!-- end_slide -->
+Branching with Switch Statement
+===
 
 ## switch vs if-then-else 
 <!-- pause -->
@@ -102,7 +101,12 @@ switch (month) {
     // ...
 }
 ```
+<!-- end_slide -->
+Branching with Switch Statement
+===
+
 <!-- pause -->
+## switch vs if-then-else 
 - **if-then-else**: ranges or conditions
 <!-- pause -->
 ```java
@@ -115,14 +119,11 @@ if (temp < 0) {
     System.out.println("Vapor");
 }
 ```
-<!-- reset_layout -->
 <!-- end_slide -->
 
 Branching with Switch Statement
 ===
-<!-- column_layout: [1, 1] -->
-<!-- column: 0 -->
-<!-- pause -->
+
 
 ## String in Switch
 <!-- pause -->
@@ -140,7 +141,10 @@ switch (month.toLowerCase()) {
     default: monthNumber = 0; break;
 }
 ```
-<!-- column: 1 -->
+<!-- end_slide -->
+Branching with Switch Statement
+===
+
 <!-- pause -->
 ## Handling Null Values
 <!-- pause -->
@@ -157,7 +161,6 @@ if (month == null) {
     }
 }
 ```
-<!-- reset_layout -->
 <!-- end_slide -->
 
 Branching with Switch Expressions
@@ -173,36 +176,38 @@ Branching with Switch Expressions
 <!-- pause -->
 - Multiple constants per case
 
-<!-- column_layout: [1, 1] -->
 
-<!-- column: 0 -->
+<!-- end_slide -->
+Branching with Switch Expressions
+===
+
 <!-- pause -->
 
-### **Traditional switch statement**
+## **Traditional switch statement**
 
 ```java
 Day day = Day.MONDAY;
 int len = 0;
 switch (day) {
-    case MONDAY, FRIDAY, SUNDAY:
-        len = 6;
-        break;
-    // ... other cases ...
+  case MONDAY, FRIDAY, SUNDAY:
+    len = 6;
+    break;
+  // ... other cases ...
 }
 ```
-<!-- column: 1 -->
+<!-- end_slide -->
+Branching with Switch Expressions
+===
 <!-- pause -->
-### ***Switch expression***
+## ***Switch expression***
 ```java
 int len = switch (day) {
-    case MONDAY, FRIDAY, SUNDAY -> 6;
-    case TUESDAY                -> 7;
-    case THURSDAY, SATURDAY     -> 8;
-    case WEDNESDAY              -> 9;
+  case MONDAY, FRIDAY, SUNDAY -> 6;
+  case TUESDAY                -> 7;
+  case THURSDAY, SATURDAY     -> 8;
+  case WEDNESDAY              -> 9;
 };
 ```
-
-<!-- reset_layout -->
 <!-- end_slide -->
 
 Branching with Switch Expressions
@@ -216,6 +221,8 @@ Branching with Switch Expressions
 - Single expression: implicit return
 - Block: use `yield` keyword
 
+<!-- column: 1 -->
+
 <!-- pause -->
 ## Simple expression
 ```java
@@ -225,7 +232,12 @@ String quarterLabel = switch (quarter) {
     default -> "Unknown quarter";
 };
 ```
-<!-- pause -->
+<!-- reset_layout -->
+<!-- end_slide -->
+
+Branching with Switch Expressions
+===
+
 ## Block with yield
 ```java
 String label = switch (quarter) {
@@ -236,32 +248,33 @@ String label = switch (quarter) {
     default -> "Unknown quarter";
 };
 ```
-<!-- column: 1 -->
+
+<!-- end_slide -->
+Branching with Switch Expressions
+===
+
 <!-- pause -->
 ## Exhaustiveness
 - Switch expressions must cover all cases
 - Default clause often needed
 - Exception for complete enum coverage
 
-<!-- new_line -->
 ```java
 enum Season { SPRING, SUMMER, FALL, WINTER }
-
 String weather = switch (season) {
-    case SPRING -> "Rainy";
-    case SUMMER -> "Sunny";
-    case FALL   -> "Windy";
-    case WINTER -> "Snowy";
-    // No default needed - all cases covered
+  case SPRING -> "Rainy";
+  case SUMMER -> "Sunny";
+  case FALL   -> "Windy";
+  case WINTER -> "Snowy";
+  // No default needed - all cases covered
 };
 ```
-<!-- reset_layout -->
 <!-- end_slide -->
 
 Branching with Switch Expressions
 ===
 
-<!-- column_layout: [1, 1] -->
+<!-- column_layout: [2, 3] -->
 <!-- column: 0 -->
 <!-- pause -->
 ## Colon Syntax
@@ -269,20 +282,23 @@ Branching with Switch Expressions
 - Requires explicit `yield`
 - Fall-through still applies
 
+<!-- column: 1 -->
 <!-- pause -->
 ```java
 String quarterLabel = switch (quarter) {
-    case 0:  
-        System.out.println("Winter");
-        yield "Q1 - Winter";
-    case 1:  
-        yield "Q2 - Spring";
-    default: 
-        yield "Unknown quarter";
+  case 0:  
+    System.out.println("Winter");
+    yield "Q1 - Winter";
+  case 1:  
+    yield "Q2 - Spring";
+  default: 
+    yield "Unknown quarter";
 };
 ```
-
-<!-- column: 1 -->
+<!-- reset_layout -->
+<!-- end_slide -->
+Branching with Switch Expressions
+===
 <!-- pause -->
 ## Null Handling
 - Traditional switch throws NPE on null
@@ -292,14 +308,12 @@ String quarterLabel = switch (quarter) {
 ```java
 String month = null;
 String season = switch (month) {
-    case "Jan", "Feb", "Dec" -> "Winter";
-    case null -> "No month provided";  // Java 17+ preview
-    default -> "Unknown season";
+  case "Jan", "Feb", "Dec" -> "Winter";
+  case null -> "No month provided";  // Java 17+ preview
+  default -> "Unknown season";
 };
 ```
-<!-- reset_layout -->
 <!-- pause -->
-### Best Practice:  
-Always check for null before switching
+**Best Practice:** Always check for null before switching
 
 

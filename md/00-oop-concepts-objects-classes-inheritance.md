@@ -1,19 +1,27 @@
 ---
+title: Object Oriented Programming in Java
+sub_title: Introduction to basic OOP concepts
+author: Suhel Hammoud
+
 theme:
   override:
     code:
         alignment: left
-        margin:
-            percent: 5
+        # margin:
+        #     percent: 2q
     #   padding:
         # horizontal: 4
 ---
 
-Objects, Classes, Interfaces, Packages, and Inheritance
+
+
+
+Introduction to basic OOP concepts in Java:
 ===
 
 <!-- pause -->
 Introduction to basic OOP concepts in Java:
+ 
 - Objects
 <!-- pause -->
 - Classes  
@@ -25,182 +33,119 @@ Introduction to basic OOP concepts in Java:
 - Packages
 <!-- pause -->
 
-
 Each concept relates to the real world while introducing Java syntax.
 
 <!-- end_slide -->
 
-What is an Object?
+Object
 ===
 
-<!-- column_layout: [1, 1] -->
-
-<!-- column: 0 -->
 
 A software bundle of related state and behavior.
 
 ## Key characteristics:
 <!-- pause -->
 - State (represented by fields/variables)  
+<!-- pause -->
 - Behavior (represented by methods/functions)
 
+
 <!-- pause -->
+
 ## Real-world examples:
 <!-- pause -->
 - Dogs: state (name, color), behavior (barking)
+<!-- pause -->
 - Bicycles: state (speed, gear), behavior (changing gear)
 
-<!-- column: 1 -->
+<!-- end_slide -->
+
+Object
+===
 <!-- pause -->
 
 ## Object Benefits
 
 Key advantages of objects:
+<!-- pause -->
 1. Modularity: Independent code units
+<!-- pause -->
 2. Information-hiding: Internal details hidden
+<!-- pause -->
 3. Code re-use: Existing objects can be reused  
+<!-- pause -->
 4. Pluggability: Easy to replace objects
+<!-- pause -->
 5. Debugging ease: Fix/replace individual objects
-
-<!-- reset_layout -->
 
 <!-- end_slide -->
 
+Object
+===
 
-<!-- column_layout: [1, 1] -->
-
-<!-- column: 0 -->
-
+<!-- pause -->
 ## Classes:
 
-
+<!-- pause -->
 A class is the blueprint from which individual objects are created.
+<!-- pause -->
 
 Example Bicycle class defines:
+<!-- pause -->
 
 - Fields (state): cadence,speed,and gear.
+<!-- pause -->
 
 - Methods (behavior): changeCadence, changeGear, speedUp, applyBrakes, and printStates.
 
-<!-- column: 1 -->
-<!-- pause -->
+<!-- end_slide -->
+
+
 ```java
 class Bicycle {
 
-    int cadence = 0;
-    int speed = 0;
-    int gear = 1;
+  int gear = 1;
+  int speed = 0;
 
-    void changeCadence(int newValue) {
-          cadence = newValue;
-    }
+  void changeGear(int newValue) { gear = newValue;}
 
-    void changeGear(int newValue) {
-         gear = newValue;
-    }
+  void speedUp(int increment) { speed = speed + increment;  }
 
-    void speedUp(int increment) {
-         speed = speed + increment;   
-    }
+  void applyBrakes(int decrement) { 
+    speed = speed - decrement; }
 
-    void applyBrakes(int decrement) {
-         speed = speed - decrement;
-    }
-
-    void printStates() {
-         System.out.println("cadence:" +
-             cadence + " speed:" + 
-             speed + " gear:" + gear);
-    }
+  void printStates() {
+    System.out.println("speed:" + speed 
+    + " gear:" + gear);
+  }
 }
 ```
 
 
-<!-- reset_layout -->
 
 <!-- end_slide -->
 
-Class Usage Example
-===
-
-## Creating and using Bicycle objects:
-<!-- column_layout: [1, 1] -->
-
-<!-- column: 0-->
 ```java
+//Creating and using Bicycle objects:
 class BicycleDemo {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        // Create two different 
-        // Bicycle objects
-        Bicycle bike1 = new Bicycle();
-        Bicycle bike2 = new Bicycle();
+    // Create two different Bicycle objects
+    Bicycle bike1 = new Bicycle();
+    Bicycle bike2 = new Bicycle();
 
-        // Invoke methods on 
-        // those objects
-        bike1.changeCadence(50);
-        bike1.speedUp(10);
-        bike1.changeGear(2);
-        bike1.printStates();
+    // Invoke methods on objects
+    bike1.speedUp(10);
+    bike1.changeGear(2);
+    bike1.printStates();
 
-        bike2.changeCadence(50);
-        bike2.speedUp(10);
-        bike2.changeGear(2);
-        bike2.changeCadence(40);
-        bike2.speedUp(10);
-        bike2.changeGear(3);
-        bike2.printStates();
-    }
+    bike2.speedUp(10);
+    bike2.speedUp(10);
+    bike2.printStates();
+  }
 }
 ```
 
-<!-- column: 1 -->
-
-```java +exec
-/// class Bicycle {
-///     int cadence = 0;
-///     int speed = 0;
-///     int gear = 1;
-///     void changeCadence(int newValue) {
-///          cadence = newValue;
-///     }
-///     void changeGear(int newValue) {
-///          gear = newValue;
-///     }
-///     void speedUp(int increment) {
-///          speed = speed + increment;   
-///     }
-///     void applyBrakes(int decrement) {
-///         speed = speed - decrement;
-///     }
-///     void printStates() {
-///          System.out.println("cadence:" +
-///              cadence + " speed:" + 
-///              speed + " gear:" + gear);
-///     }
-///     public static void main(String[] args) {
-///          // Create two different 
-///          // Bicycle objects
-///          Bicycle bike1 = new Bicycle();
-///          Bicycle bike2 = new Bicycle();
-///          // Invoke methods on 
-///          // those objects
-///          bike1.changeCadence(50);
-///          bike1.speedUp(10);
-///          bike1.changeGear(2);
-///          bike1.printStates();
-///          bike2.changeCadence(50);
-///          bike2.speedUp(10);
-///          bike2.changeGear(2);
-///          bike2.changeCadence(40);
-///          bike2.speedUp(10);
-///          bike2.changeGear(3);
-///          bike2.printStates();
-///     }
-/// };
-```
-
-<!-- reset_layout -->
 <!-- end_slide -->
 
 Inheritance
@@ -210,8 +155,12 @@ Inheritance
 Different kinds of objects often share common characteristics. 
 Example: Mountain bikes, road bikes, and tandem bikes all have:
 - Current speed 
-- Pedal cadence 
 - Current gear 
+
+<!-- end_slide -->
+
+Inheritance
+===
 
 Each type adds unique features:
 
@@ -234,18 +183,12 @@ Each type adds unique features:
 ### Mountain bikes: Additional chain ring 
 ![](../assets/images/00-mountain-bike.jpeg)
 
-
 <!-- reset_layout -->
-
 <!-- end_slide -->
 
 Inheritance
 ===
 
-<!-- column_layout: [1, 1] -->
-
-<!-- column: 0 -->
-<!-- pause -->
 ## Inheritance allows classes to inherit state and behavior from other classes.
 
 Key concepts:
@@ -255,18 +198,26 @@ Key concepts:
 - Unlimited subclasses per superclass
 
 
+<!-- end_slide -->
+Inheritance
+===
+
+
+<!-- column_layout: [3, 2] -->
+
+<!-- column: 0 -->
 <!-- pause -->
+## Class Diagram Hierarchy Example
 
 ```java
 class TandemBike extends Bicycle {
     // inherits all fields and methods from Bicycle
 }
 ```
-
-<!-- column: 1 -->
 <!-- pause -->
 
-## Class Diagram Hierarchy Example
+<!-- column: 1 -->
+
 
 ```mermaid +render
 classDiagram
@@ -290,17 +241,11 @@ classDiagram
 ```
 
 <!-- reset_layout -->
-
 <!-- end_slide -->
 
 
 Interfaces
 ===
-
-<!-- column_layout: [1, 1] -->
-
-<!-- column: 0 -->
-<!-- pause -->
 
 ## In its most common form, an interface is a group of related methods with empty bodies.
 
@@ -314,24 +259,12 @@ interface Bicycle {
     void applyBrakes(int decrement);
 }
 ```
-<!-- pause -->
+<!-- end_slide -->
 
-## Interface Class Diagram
 
-```mermaid +render
-classDiagram
-class Bicycle
-<<interface>> Bicycle
-Bicycle : changeCadence(int)
-Bicycle : changeGear(int)
-Bicycle : speedUp(int)
-Bicycle : applyBrakes(int)
+<!-- column_layout: [3, 1] -->
 
-Bicycle <|-- ACMEBicycle
-    
-```
-<!-- column: 1 -->
-<!-- pause -->
+<!-- column: 0 -->
 
 ## Implementing an Interface
 
@@ -352,8 +285,27 @@ class ACMEBicycle implements Bicycle {
     //
 }
 ```
+
+<!-- column: 1 -->
+<!-- new_line -->
+<!-- pause -->
+## Class Diagram
+
+```mermaid +render
+classDiagram
+class Bicycle
+<<interface>> Bicycle
+Bicycle : changeCadence(int)
+Bicycle : changeGear(int)
+Bicycle : speedUp(int)
+Bicycle : applyBrakes(int)
+
+Bicycle <|-- ACMEBicycle
+    
+```
 <!-- reset_layout -->
 <!-- end_slide -->
+
 
 
 Packages
@@ -370,7 +322,10 @@ Think of it like folders on your computer:
 
 Java programs can have *hundreds* of classes—packages keep them organized.  
 
-<!-- pause -->  
+<!-- end_slide -->  
+
+Packages
+===
 
 ## Java’s Built-in Packages  
 
@@ -384,8 +339,10 @@ These packages handle common tasks, such as:
 
 Thousands of prebuilt classes let you focus on your app’s logic.  
 
-<!-- pause
- -->
+<!-- end_slide -->
+Packages
+===
+<!-- pause -->
 ## The Java API Documentation  
 
 The **Java Platform API Specification** lists all packages, classes, and methods in Java SE.  
