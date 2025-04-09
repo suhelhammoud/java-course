@@ -1,17 +1,21 @@
 ---
+title: Object Oriented Programming in Java
+sub_title: Enum Classes
+author: Suhel Hammoud
+
 theme:
   override:
     code:
         alignment: left
-        margin:
-            percent: 5
+        # margin:
+        #     percent: 2q
     #   padding:
         # horizontal: 4
 ---
 
-Enum Classes
-===
 
+Enum
+===
 
 
 ## What are Enums?
@@ -24,7 +28,7 @@ Enum Classes
 
 ```java
 public enum DayOfWeek {
-    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+  MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
 }
 ```
 
@@ -43,9 +47,14 @@ Accessing, Evaluating, and Comparing Enums
 DayOfWeek weekStart = DayOfWeek.MONDAY;
 
 if (weekStart == DayOfWeek.MONDAY) {
-    System.out.println("The week starts on Monday.");
+  System.out.println("The week starts on Monday.");
 }
 ```
+
+<!-- end_slide -->
+
+Accessing, Evaluating, and Comparing Enums
+===
 
 - Use `switch` for actions based on enum values.
 
@@ -53,11 +62,11 @@ if (weekStart == DayOfWeek.MONDAY) {
 DayOfWeek someDay = DayOfWeek.FRIDAY;
 
 switch (someDay) {
-    case MONDAY -> System.out.println("The week just started.");
-    case TUESDAY, WEDNESDAY, THURSDAY -> System.out.println("We are in the middle of the week.");
-    case FRIDAY -> System.out.println("The weekend is near.");
-    case SATURDAY, SUNDAY -> System.out.println("Weekend");
-    default -> throw new AssertionError("Should not happen");
+  case MONDAY -> System.out.println("The week just started.");
+  case TUESDAY, WEDNESDAY, THURSDAY -> System.out.println("We are in the middle of the week.");
+  case FRIDAY -> System.out.println("The weekend is near.");
+  case SATURDAY, SUNDAY -> System.out.println("Weekend");
+  default -> throw new AssertionError("Should not happen");
 }
 ```
 
@@ -67,31 +76,30 @@ switch (someDay) {
 <!-- end_slide -->
 
 
-Enum Members
-===
 
-## Adding memebers to enum
+
+Adding memebers to enum
+===
 - Enums can have constructors, methods, and fields.
 - Add a `;` after the enum constants list to define members.
 
 ```java
 public enum DayOfWeek {
-    MONDAY("MON"), TUESDAY("TUE"), WEDNESDAY("WED"), 
-    THURSDAY("THU"), FRIDAY("FRI"), SATURDAY("SAT"), SUNDAY("SUN");
-    
-    private final String abbreviation;
-    
-    DayOfWeek(String abbreviation) {
-        this.abbreviation = abbreviation;
-    }
-    
-    public String getAbbreviation() {
-        return abbreviation;
-    }
+  MONDAY("MON"), TUESDAY("TUE"), WEDNESDAY("WED"), 
+  THURSDAY("THU"), FRIDAY("FRI"), SATURDAY("SAT"), SUNDAY("SUN");
+  
+  private final String abbreviation;
+  
+  DayOfWeek(String abbreviation) { this.abbreviation = abbreviation;}
+  
+  public String getAbbreviation() { return abbreviation; }
 }
 ```
 
-## Using Enums as Singletons: define a single enum constant
+<!-- end_slide -->
+
+Using Enums as Singletons: define a single enum constant
+===
 
 
 ```java
@@ -115,6 +123,10 @@ System.out.println(DayOfWeek.MONDAY.name());    // "MONDAY"
 System.out.println(DayOfWeek.MONDAY.ordinal()); // "0"
 ```
 
+<!-- end_slide -->
+Enum Methods
+===
+## Special Methods in Enums 
 - **Static Methods**:
   - `values()`: Returns an array of all enum instances.
   - `valueOf(String)`: Returns an enum instance by name.
@@ -126,40 +138,33 @@ DayOfWeek monday = DayOfWeek.valueOf("MONDAY");
 
 - Enums implement `Comparable` and are ordered by their ordinal number.
 
-
 <!-- end_slide -->
 
-Enums (cont.)
-===
+- **Abstract Methods** : each enum constant must provide an implementation.
 
-
-
-## Abstract Methods in Enums
-
-- Enums can have abstract methods, but each enum constant must provide an implementation.
 
 ```java
 enum MyEnum {
-    A() {
-        @Override
-        void doSomething() {
-            System.out.println("a");
-        }
-    },
-    B() {
-        @Override
-        void doSomething() {
-            System.out.println("b");
-        }
-    };
-    
-    abstract void doSomething();
+  A() {
+    @Override
+    void doSomething() {
+      System.out.println("a");
+    }
+  },
+  B() {
+    @Override
+    void doSomething() {
+      System.out.println("b");
+    }
+  };
+  
+  abstract void doSomething();
 }
 ```
 
 <!-- end_slide -->
 
-Enum: Precautions and Summary
+Enum: Precautions
 ===
 
 ## Precautions with Enums
@@ -169,11 +174,3 @@ Enum: Precautions and Summary
   - Review all code using the enum when making changes.
 - **Large Number of Instances**:
   - For many instances, consider using a configuration file instead of listing all in code.
-
-
-## Conclusion
-
-- Enums provide a simple and safe way to represent a fixed set of constants.
-- They are elegant, readable, and work well with modern Java features like switch expressions.
-- Enums are a special type of class, similar to **Records** (introduced in Java 14).
-- For more details, visit the [Enum javadoc](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html).
