@@ -1,10 +1,14 @@
 ---
+title: Object Oriented Programming in Java
+sub_title: Subtitle
+author: Suhel Hammoud
+
 theme:
   override:
     code:
         alignment: left
-        margin:
-            percent: 5
+        # margin:
+        #     percent: 2q
     #   padding:
         # horizontal: 4
 ---
