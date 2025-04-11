@@ -22,3 +22,7 @@ mermaid:
   # the scale parameter passed to the mermaid CLI (mmdc).
   scale: 1
 
+export:
+    dimensions:
+        columns: 95
+        rows: 25
