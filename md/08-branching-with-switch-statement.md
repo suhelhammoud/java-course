@@ -16,7 +16,9 @@ theme:
 Branching with Switch Statement
 ===
 
+<!-- pause -->
 ## Switch Statement Basics:
+<!-- pause -->
 - Controls program flow based on selector variable
 <!-- pause -->
 - Supported types:
@@ -47,8 +49,13 @@ switch (quarter) {
 
 Branching with Switch Statement
 ===
+
+<!-- pause -->
+
 ## Break and Fall-Through
+<!-- pause -->
 - `break` terminates switch block
+<!-- pause -->
 - Without `break`, execution falls through to next case
 
 <!-- pause -->
@@ -68,8 +75,10 @@ switch (month) {
 Branching with Switch Statement
 ===
 
+<!-- pause -->
 
 ## Multiple Case Labels
+<!-- pause -->
 - Single block can handle multiple cases
 
 <!-- pause -->
@@ -89,6 +98,7 @@ switch (month) {
 Branching with Switch Statement
 ===
 
+<!-- pause -->
 ## switch vs if-then-else 
 <!-- pause -->
 - **Switch**: single discrete values
@@ -124,10 +134,12 @@ if (temp < 0) {
 Branching with Switch Statement
 ===
 
+<!-- pause -->
 
 ## String in Switch
 <!-- pause -->
 - Available since Java SE 7
+<!-- pause -->
 - Case-sensitive comparison (use `toLowerCase()`)
 
 <!-- pause -->
@@ -142,6 +154,7 @@ switch (month.toLowerCase()) {
 }
 ```
 <!-- end_slide -->
+
 Branching with Switch Statement
 ===
 
@@ -165,15 +178,11 @@ if (month == null) {
 
 Branching with Switch Expressions
 ===
-<!-- pause -->
 ## Switch Expressions (Java SE 14+)
-<!-- pause -->
+<!-- incremental_lists: true -->
 - More concise syntax
-<!-- pause -->
 - No fall-through behavior
-<!-- pause -->
 - Can return values
-<!-- pause -->
 - Multiple constants per case
 
 
@@ -182,7 +191,6 @@ Branching with Switch Expressions
 ===
 
 <!-- pause -->
-
 ## **Traditional switch statement**
 
 ```java
@@ -196,6 +204,7 @@ switch (day) {
 }
 ```
 <!-- end_slide -->
+
 Branching with Switch Expressions
 ===
 <!-- pause -->
@@ -238,6 +247,7 @@ String quarterLabel = switch (quarter) {
 Branching with Switch Expressions
 ===
 
+<!-- pause -->
 ## Block with yield
 ```java
 String label = switch (quarter) {
@@ -250,11 +260,13 @@ String label = switch (quarter) {
 ```
 
 <!-- end_slide -->
+
 Branching with Switch Expressions
 ===
 
 <!-- pause -->
 ## Exhaustiveness
+<!-- incremental_lists: true -->
 - Switch expressions must cover all cases
 - Default clause often needed
 - Exception for complete enum coverage
