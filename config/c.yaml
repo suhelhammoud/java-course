@@ -4,8 +4,8 @@ defaults:
 
   # the theme to use by default in every presentation unless overridden.
   # theme: catppuccin-frappe
-  theme: dark
-  # theme: catppuccin-latte
+  # theme: dark
+  theme: catppuccin-latte
 
 snippet:
   exec:
@@ -22,7 +22,7 @@ mermaid:
   # the scale parameter passed to the mermaid CLI (mmdc).
   scale: 1
 
-export:
-    dimensions:
-        columns: 95
-        rows: 25
+# export:
+#     dimensions:
+#         columns: 95
+#         rows: 25
