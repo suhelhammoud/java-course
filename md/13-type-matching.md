@@ -24,7 +24,6 @@ Pattern Matching
 - Record Patterns
 - Nested Record Patterns in `switch`
 
-
 <!-- end_slide -->
 
 # Pattern Matching: Key Concepts
@@ -36,19 +35,19 @@ Pattern matching in Java is broader than regular expressions.
 Pattern Matching includes three main concepts:
 
 <!-- incremental_lists: true -->
-* **Matched Target**: What you want to match (e.g., an object or a string).
-* **Pattern**: The condition or structure to match (e.g., regex or type).
-* **Result**: The outcome of a successful match (e.g., group, start/end indexes).
+* **Matched Target**: An object or a string.
+* **Pattern**: regex or type.
+* **Result**: start/end indexes, etc. 
 
 These apply across all kinds of pattern matching.
 
 <!-- end_slide -->
 
-# Pattern Matching for `instanceof`
+# Using `instanceof`
 
-## Before Java 16
+## Example
 
-```java {all | 3}
+```java {all | 3 | 4}
 public void print(Object o) {
     if (o instanceof String){
       String s = (String) o;
@@ -63,15 +62,15 @@ public void print(Object o) {
 <!-- end_slide -->
 # Pattern Matching for `instanceof`
 
-Introduced in **Java SE 16**.
+## Introduced in **Java SE 16**.
 
 ```java {all | 2 | 3}
 public void print(Object o) {
-    if (o instanceof String s){
-        System.out.println("This is a String of length " + s.length());
-    } else {
-        System.out.println("This is not a String");
-    }
+  if (o instanceof String s){
+      System.out.println("This is a String of length " + s.length());
+  } else {
+      System.out.println("This is not a String");
+  }
 }
 ```
 <!-- incremental_lists: true -->
@@ -83,6 +82,7 @@ public void print(Object o) {
 
 # Extended `instanceof` Usage
 
+<!-- pause -->
 ## Pattern variables within boolean conditions:
 
 ```java
@@ -90,6 +90,7 @@ if (o instanceof String s && !s.isEmpty()) {
     System.out.println("Non-empty string: " + s.length());
 }
 ```
+<!-- pause -->
 
 ## Pattern matching to simplify early returns:
 
@@ -108,11 +109,12 @@ Some type checks are statically invalid:
 
 ```java
 Double pi = Math.PI;
+
 if (pi instanceof String s) {
     // Compile-time error
 }
 ```
-
+<!-- pause -->
 The compiler rejects it because `String` is final and cannot match `Double`.
 
 <!-- end_slide -->
@@ -121,10 +123,10 @@ The compiler rejects it because `String` is final and cannot match `Double`.
 
 ## Example
 
-```java
+```java {all | 5-11}
 public class Point {
-    private int x;
-    private int y;
+    final private int x;
+    final private int y;
 
     public boolean equals(Object o) {
         if (!(o instanceof Point)) {
@@ -137,7 +139,6 @@ public class Point {
     // constructor, hashCode method and accessors have been omitted
 }
 ```
-
 
 <!-- end_slide -->
 
@@ -165,6 +166,7 @@ It's more concise and readable than the traditional instanceof + cast pattern.
 ```java
 Object o = ...; // any object
 String formatted = null;
+
 if (o instanceof Integer i) {
     formatted = String.format("int %d", i);
 } else if (o instanceof Long l) {
@@ -186,6 +188,7 @@ Introduced in **JDK 21**.
 
 ```java
 Object o = ...; // any object
+
 String formatted = switch(o) {
     case Integer i -> String.format("int %d", i);
     case Long l    -> String.format("long %d", l);
@@ -222,19 +225,17 @@ This combines type matching with boolean checks.
 
 # Record Patterns
 
+<!-- pause -->
+Record patterns are introduced in **Java 17**.
+
+<!-- pause -->
+
 ```java
 record Point(int x, int y) {}
 ```
-
-```java
-if (o instanceof Point p) {
-    int a = p.x();
-    int b =p.y();
-    //Use a and b
-}
-```
 <!-- pause -->
-Better way: Deconstruct it.
+
+## Use deconstruction with record pattern. 
 
 ```java
 if (o instanceof Point(int a, int b)) {
@@ -246,16 +247,20 @@ if (o instanceof Point(int a, int b)) {
 
 # Record Patterns: Details
 
-* Pattern matches **accessors** of the record.
-* Based on the **canonical constructor**.
-* Supports **type inference** using `var`.
 
 ```java
 record Point(double x, double y) {}
+
 if (o instanceof Point(var x, var y)) {
     // x, y are doubles
 }
 ```
+
+<!-- incremental_lists: true -->
+
+* Pattern matches **accessors** of the record.
+* Based on the **canonical constructor**.
+* Supports **type inference** using `var`.
 
 <!-- end_slide -->
 
@@ -264,11 +269,13 @@ if (o instanceof Point(var x, var y)) {
 Record patterns also work in switch:
 
 ```java
-record Box(Object o) {}
+record Box(Object data) {}
+
+Object o = ...;// any object
 
 switch (o) {
-    case Box(String s) -> ...
-    case Box(Integer i) -> ...
+    case Box(String s) -> ... // Use s
+    case Box(Integer i) -> ... // Use i
     default -> ...
 }
 ```
@@ -282,7 +289,8 @@ The compiler ensures type safety.
 Invalid matches:
 
 ```java
-record Box(CharSequence o) {}
+record Box(CharSequence data) {}
+
 // Will not compile:
 case Box(Integer i) -> ...
 ```
@@ -291,6 +299,7 @@ No boxing/unboxing support:
 
 ```java
 record Point(Integer x, Integer y) {}
+
 // Invalid:
 if (o instanceof Point(int x, int y)) {}
 ```
@@ -301,10 +310,12 @@ if (o instanceof Point(int x, int y)) {}
 
 You can nest record patterns:
 
-```java
+```java {all|1|3|5|7-9}
 record Point(double x, double y) {}
 
 record Circle(Point center, double radius) {}
+
+Object o = ...; // any object
 
 if (o instanceof Circle(Point(var x, var y), var r)) {
     // Use x, y, and r
@@ -319,10 +330,12 @@ Great for matching complex structures.
 
 You can extract certain fields from record patterns:
 
-```java
+```java {all|1-5|7-9 |11-13}
 record Point(double x, double y) {}
 
 record Circle(Point center, double radius) {}
+
+Object o = ...; // any object
 
 if (o instanceof Circle(Point(_, m), _)) { 
   // Use m
@@ -331,7 +344,6 @@ if (o instanceof Circle(Point(_, m), _)) {
 if (o instanceof Circle(_, var r)) {
   // Use r
 }
-
 ```
 
 
@@ -339,11 +351,13 @@ if (o instanceof Circle(_, var r)) {
 
 # Summary
 
+<!-- pause -->
 Pattern matching now supported in:
 
-* `instanceof` keyword
+* `instanceof` operator
 * `switch` statement/expression
 
+<!-- pause -->
 Supported pattern types:
 
 * **Type patterns**
