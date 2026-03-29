@@ -512,7 +512,7 @@ Checked exceptions must be declared using `throws`.
 
 ```java
 public void readFile(String fileName) throws IOException {
-    if (!Files.exists(Path.of("file"))) {
+    if (!Files.exists(Path.of(fileName))) {
         throw new IOException("File not found");
     }
 }
