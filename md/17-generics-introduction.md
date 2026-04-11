@@ -67,10 +67,10 @@ Generic Types
 ## Generic Types: A Simple Box Class
 ```java
 public class Box {
-    private Object object;
+    private Object data;
 
-    public void set(Object object) { this.object = object; }
-    public Object get() { return object; }
+    public void set(Object data) { this.data = data; }
+    public Object get() { return data; }
 }
 ```
 <!-- pause -->
@@ -130,12 +130,12 @@ Generic Types
 
 ## Multiple Type Parameters
 ```java
-public interface Pair<K, V> {
+public interface IPair<K, V> {
     public K getKey();
     public V getValue();
 }
 
-public class OrderedPair<K, V> implements Pair<K, V> {
+public class Pair<K, V> implements IPair<K, V> {
     private K key;
     private V value;
     
@@ -149,15 +149,15 @@ Generic Types
 <!-- pause -->
 ## Using Multiple Type Parameters
 ```java
-Pair<String, Integer> p1 = new OrderedPair<>("Even", 8);
-Pair<String, String> p2 = new OrderedPair<>("hello", "world");
+IPair<String, Integer> p1 = new Pair<>("Even", 8);
+IPair<String, String> p2 = new Pair<>("hello", "world");
 ```
 
 <!-- pause -->
 ## Parameterized Types as Type Arguments
 ```java
-OrderedPair<String, Box<Integer>> p = 
-  new OrderedPair<>("primes", new Box<Integer>());
+Pair<String, Box<Integer>> p = 
+  new Pair<>("primes", new Box<Integer>());
 ```
 <!-- pause -->
 Can use parameterized types (like `Box<Integer>`) as type arguments
@@ -291,7 +291,8 @@ public class Pair<K, V> {
         this.value = value;
     }
     
-    // getters and setters
+    public K getKey() { return key; }
+    public V getValue() { return value; }
 }
 ```
 <!-- end_slide -->
@@ -307,7 +308,7 @@ Methods that introduce their own type parameters:
 
 ```java
 public class Util {
-    public static <K, V> boolean compare(Pair<K, V> p1, Pair<K, V> p2) {
+    public static <K, V> boolean equals(Pair<K, V> p1, Pair<K, V> p2) {
         return p1.getKey().equals(p2.getKey()) &&
                p1.getValue().equals(p2.getValue());
     }
@@ -338,7 +339,7 @@ Generic Methods
 ```java
 Pair<Integer, String> p1 = new Pair<>(1, "apple");
 Pair<Integer, String> p2 = new Pair<>(2, "pear");
-boolean same = Util.<Integer, String>compare(p1, p2);
+boolean same = Util.<Integer, String>equals(p1, p2);
 ```
 <!-- end_slide -->
 
@@ -352,7 +353,7 @@ Compiler can infer types automatically:
 ```java
 Pair<Integer, String> p1 = new Pair<>(1, "apple");
 Pair<Integer, String> p2 = new Pair<>(2, "pear");
-boolean same = Util.compare(p1, p2);  // types inferred
+boolean same = Util.equals(p1, p2);  // types inferred
 ```
 - Makes code cleaner
 - Works with most generic method calls
@@ -384,7 +385,7 @@ Restrict types that can be used as type arguments:
 Bounded Type Parameters: Example
 ===
 
-<!-- column_layout: [3,7] -->
+<!-- column_layout: [4,7] -->
 <!-- column: 0 -->
 ```java
 public class Box<T> {
@@ -588,8 +589,8 @@ Generics, Inheritance, and Subtypes
 ```java
 
 Box<Number> box = new Box<Number>();
-box.add(10);  // OK
-box.add(10.1); // OK
+box.set(10);  // OK
+box.set(10.1); // OK
 
 public void boxTest(Box<Number> n) { /* ... */ }
 boxTest(new Box<Integer>());  // Compile error!
