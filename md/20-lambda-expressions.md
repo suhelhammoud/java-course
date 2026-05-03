@@ -173,3 +173,8 @@ Lambdas can be serialized, enabling their use in serializable objects.
 
 This supports backward compatibility in classes that store functional fields.
 
+<!-- end_slide -->
+
+## references:
+
+- [](https://dev.java/learn/lambdas/)

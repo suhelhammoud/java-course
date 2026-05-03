@@ -258,3 +258,8 @@ BiFunction<String, String, Integer> findWordInSentence =
 - Specialized interfaces avoid boxing/unboxing for primitives.
 - Extensions: `UnaryOperator<T>`, `BinaryOperator<T>` for same-type transformations.
 
+<!-- end_slide -->
+
+## references:
+
+- [](https://dev.java/learn/lambdas/)
