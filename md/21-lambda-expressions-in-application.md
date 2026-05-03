@@ -210,7 +210,7 @@ Function<String, Integer> toLength = s -> s.length();
 - Specialized for different argument and return types:
   - Input: T, int, long, double
   - Output: T, int, long, double
-- Specialized interfaces: `IntFunction<T>`, `ToIntFunction<T>`, etc.
+- Specialized interfaces: `IntFunction<R>`, `ToIntFunction<T>`, etc.
 
 <!-- end_slide -->
 
